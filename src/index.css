@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  /* Hide navigation and non-print elements */
+  aside,
+  header,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset main padding for print */
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  body {
+    background: white !important;
+    font-size: 11px !important;
+  }
+
+  /* Page margins — browser controls orientation (portrait/landscape) */
+  @page {
+    margin: 1.2cm;
+  }
+
+  /* Ensure tables fit within page width */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+  }
+
+  /* Prevent columns from being cut off — allow wrapping if needed */
+  th,
+  td {
+    white-space: normal !important;
+    word-break: break-word !important;
+    padding: 4px 6px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Keep part name column from getting too narrow */
+  td:nth-child(2),
+  th:nth-child(2) {
+    min-width: 80px;
+  }
+
+  /* Ensure the production sheet table doesn't overflow */
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  /* Print background colors for category headers and badges */
+  .bg-slate-50,
+  .bg-slate-100,
+  .bg-blue-100,
+  .bg-emerald-100,
+  .bg-orange-100,
+  .bg-purple-100,
+  .bg-cyan-100,
+  .bg-red-100,
+  .bg-slate-50,
+  .bg-white {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure text colors print correctly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Remove shadows and rings for cleaner print */
+  .shadow-sm,
+  .shadow-lg,
+  .shadow-md,
+  .shadow-xl {
+    box-shadow: none !important;
+  }
+
+  .ring-1,
+  .ring-slate-200 {
+    --tw-ring-shadow: none !important;
+  }
+
+  /* Show print-only elements */
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Avoid page breaks inside table rows */
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+  }
+}
